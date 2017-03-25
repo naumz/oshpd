@@ -246,12 +246,12 @@ mydata.surgery.summary[mydata.util, on = c(facility.oshpd.id = "OSHPD_ID"),
 # write surgery dataset to csv file
 cat("\nDataset size: ", dim(mydata.surgery), "\n")
 fwrite(mydata.surgery,
-       "oshpd_datasets/ohspd_surgery_2015.csv",
+       "datasets/ohspd_surgery_2015.csv",
        row.names = FALSE)
 
 # write surgery summary dataset to csv file
 cat("\nStoring summary dataset...\n")
 cat("\nFinal dataset size: ", dim(mydata.surgery.summary))
 fwrite(mydata.surgery.summary,
-          "oshpd_datasets/ohspd_surgery_2015_summary.csv",
+          "datasets/ohspd_surgery_2015_summary.csv",
           row.names = FALSE)
