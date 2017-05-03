@@ -7,6 +7,7 @@
 #### ENVIRONMENT ####
 # clear workspace
 rm(list = ls())
+cat('\014')
 
 # load required libraries
 library(bit64)
@@ -90,7 +91,7 @@ mydata.surgery <-
 mydata.surgery[, "Cost_Allocation_Statistics_Gross_Patient_Revenue_(2)_Total_Statistical_Units" := NULL]
 cat("\nRemoving duplicate columns and rows by values: \n")
 cat("Removing duplicate rows of hospitals...", "\n")  # keep the last of duplicates as they are arranged by date
-mydata.surgery <- mydata.surgery[which(!duplicated(mydata.surgery, by = "ID", fromLast = TRUE))]
+mydata.surgery <- unique(mydata.surgery, by = "ID", fromLast = TRUE)
 cat("Removing duplicate columns...\n")
 mydata.surgery <-
   mydata.surgery[, which(!duplicated(t(mydata.surgery))), with = FALSE]
